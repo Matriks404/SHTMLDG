@@ -130,7 +130,6 @@ with tag('html', lang = language):
                 for c in categories:
                     name = get_xml_attribute(c, 'name')
                     id = get_xml_attribute(c, 'id')
-                    directory = get_xml_attribute(c, 'directory')
 
                     with tag('div', id = id):
                         with tag('h3'):
@@ -152,7 +151,7 @@ with tag('html', lang = language):
                                         with tag('td'):
                                             text(completeness)
                                         with tag('td'):
-                                            with tag('a', href = '.htmldata/pages/' + directory + '/' + filename + '.html'):
+                                            with tag('a', href = '.htmldata/pages/' + id + '/' + filename + '.html'):
                                                 text(name)
 
 

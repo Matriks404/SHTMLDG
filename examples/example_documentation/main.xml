@@ -10,7 +10,7 @@
 	</introduction>
 
 	<guides>
-		<category name="Generic" id="generic" directory="generic">
+		<category name="Generic" id="generic">
 			<entry>
 				<name>Template guide</name>
 				<filename>template</filename>
