@@ -24,4 +24,4 @@ This will use XML files in `../src` directory, and generate HTML documentation i
 You can use the example documentation XML files to generate an example documentation website.
 You can run this by executing either:
 * On **Unix:** `./make_example_docs.Unix.sh`;
-* On **Windows:** `python3 make_example_docs.Windows.bat`.
+* On **Windows:** `.\make_example_docs.Windows.bat`.
