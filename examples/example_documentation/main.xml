@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<content>
+	<language>en</language>
+	<site_name>Example documentation</site_name>
+	<stylesheet_name>OldSchoolDocs</stylesheet_name>
+
+	<introduction>
+		<text>Welcome to the Example documentation!</text>
+		<text><![CDATA[Here you can find various guides, or... you can open the <strong><a href=".htmldata/pages/template.html">Template Guide</a></strong> for reference.]]></text>
+	</introduction>
+
+	<guides>
+		<category name="Generic" id="generic" directory="generic">
+			<entry>
+				<name>Template guide</name>
+				<filename>template</filename>
+				<status>Complete</status>
+				<completeness>100%</completeness>
+			</entry>
+		</category>
+	</guides>
+</content>
