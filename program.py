@@ -61,7 +61,7 @@ content = get_xml_element(xml, 'content')
 
 doc, tag, text = Doc().tagtext()
 
-language = get_xml_element_value(content, 'language');
+language = get_xml_element_value(content, 'language')
 site_name = get_xml_element_value(content, 'site_name')
 
 stylesheet_name = get_xml_element_value(content, 'stylesheet_name')
@@ -81,6 +81,7 @@ with tag('html', lang = language):
         with tag('title'):
             text(site_name)
         doc.asis('<meta charset="UTF-8">')
+        doc.asis('<meta name="viewport" content="height=device-width, initial-scale=0.9">')
         doc.asis('<link rel="stylesheet" href=".htmldata/style.css">')
     with tag('body'):
         with tag('header'):
@@ -154,7 +155,7 @@ with tag('html', lang = language):
                                             if status == "Not started" or completeness == '0%':
                                                 href = '#';
                                             else:
-                                                href = '.htmldata/pages/' + id + '/' + filename + '.html';
+                                                href = '.htmldata/pages/' + id + '/' + filename + '.html'
 
                                             with tag('a', href = href):
                                                 text(name)
