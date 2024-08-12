@@ -166,5 +166,5 @@ with tag('html', lang = language):
 
 result = indent(doc.getvalue())
 
-file = open('site/index.html', 'w', encoding='utf-8')
+file = open(target_dir + '/index.html', 'w', encoding='utf-8')
 file.write(result)
