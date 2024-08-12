@@ -125,7 +125,7 @@ with tag('html', lang = language):
                 categories = get_xml_elements(guides, 'category')
 
             if guides and categories:
-                statuses = {'Complete': '✔️', 'Incomplete': '🛠️', 'Errors': '⚠️', 'Not Started': '🚫'}
+                statuses = {'Complete': '✔️', 'Incomplete': '🛠️', 'With errors': '⚠️', 'Not started': '🚫'}
 
                 for c in categories:
                     name = get_xml_attribute(c, 'name')
@@ -147,15 +147,17 @@ with tag('html', lang = language):
 
                                     with tag('tr'):
                                         with tag('td'):
-                                            text(statuses[status]) #temp
+                                            text(statuses[status])
                                         with tag('td'):
                                             text(completeness)
                                         with tag('td'):
-                                            with tag('a', href = '.htmldata/pages/' + id + '/' + filename + '.html'):
+                                            if status == "Not started" or completeness == '0%':
+                                                href = '#';
+                                            else:
+                                                href = '.htmldata/pages/' + id + '/' + filename + '.html';
+
+                                            with tag('a', href = href):
                                                 text(name)
-
-
-
                         else:
                             with tag('p'):
                                 text('There are no guide entries!')

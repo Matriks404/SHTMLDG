@@ -10,8 +10,16 @@
 	</introduction>
 
 	<guides>
-		<category name="Generic" id="generic">
-			<entry name="Template guide" filename="template" status="Complete" completeness="100%"></entry>
+		<category name="Example guides" id="example-guides">
+			<entry name="Example 1" filename="example-1" status="Complete" completeness="100%"></entry>
+			<entry name="Example 2" filename="example-2" status="Incomplete" completeness="50%"></entry>
+			<entry name="Example 3" filename="example-3" status="With errors" completeness="95%"></entry>
+			<entry name="Example 2" filename="example-2" status="Not started" completeness="0%"></entry>
+		</category>
+
+		<category name="Invalid guides" id="invalid-guides">
+			<entry name="Invalid 1" filename="invalid-1" status="Incomplete" completeness="0%"></entry>
+			<entry name="Invalid 2" filename="invalid-2" status="Not started" completeness="50%"></entry>
 		</category>
 	</guides>
 </content>
