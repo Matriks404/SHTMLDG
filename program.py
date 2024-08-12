@@ -140,10 +140,10 @@ with tag('html', lang = language):
                         if entries:
                             with tag('table'):
                                 for e in entries:
-                                    name = get_xml_element_value(e, 'name')
-                                    filename = get_xml_element_value(e, 'filename')
-                                    status = get_xml_element_value(e, 'status')
-                                    completeness = get_xml_element_value(e, 'completeness')
+                                    name = get_xml_attribute(e, 'name')
+                                    filename = get_xml_attribute(e, 'filename')
+                                    status = get_xml_attribute(e, 'status')
+                                    completeness = get_xml_attribute(e, 'completeness')
 
                                     with tag('tr'):
                                         with tag('td'):

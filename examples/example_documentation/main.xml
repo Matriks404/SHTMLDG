@@ -11,12 +11,7 @@
 
 	<guides>
 		<category name="Generic" id="generic">
-			<entry>
-				<name>Template guide</name>
-				<filename>template</filename>
-				<status>Complete</status>
-				<completeness>100%</completeness>
-			</entry>
+			<entry name="Template guide" filename="template" status="Complete" completeness="100%"></entry>
 		</category>
 	</guides>
 </content>
