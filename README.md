@@ -17,8 +17,8 @@ Example:
 
 This will use XML files in `../src` directory, and generate HTML documentation in `../site` directory.
 
-## XML file format
-**TODO:** This section.
+## Documentation
+Go to the [Wiki](../../wiki) for information about file formats used by **SHTMLDG**.
 
 ## Examples
 You can use the example documentation XML files to generate an example documentation website.
