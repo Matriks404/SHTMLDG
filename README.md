@@ -25,3 +25,5 @@ You can use the example documentation XML files to generate an example documenta
 You can run this by executing either:
 * On **Unix:** `./make_example_docs.Unix.sh`;
 * On **Windows:** `.\make_example_docs.Windows.bat`.
+
+Alternatively see **[Old Software Collection](https://github.com/Matriks404/OSC)** repository for more practical example.
