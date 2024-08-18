@@ -8,7 +8,10 @@ from xml.dom import minidom
 from yattag import Doc, indent
 
 def get_xml_attribute(source, attribute_name):
-    return source.attributes[attribute_name].firstChild.data
+    if source.hasAttribute(attribute_name):
+        return source.attributes[attribute_name].firstChild.data
+    else:
+        return None
 
 def get_xml_elements(source, tag_name):
     return source.getElementsByTagName(tag_name)
@@ -64,18 +67,24 @@ doc, tag, text = Doc().tagtext()
 language = get_xml_element_value(content, 'language')
 site_name = get_xml_element_value(content, 'site_name')
 
+target_htmldata_dir = target_dir + '/.htmldata'
+
 stylesheet_name = get_xml_element_value(content, 'stylesheet_name')
-stylesheet_filename = 'stylesheets/' + stylesheet_name + '.css'
+source_stylesheet_path = 'stylesheets/' + stylesheet_name + '.css'
+target_stylesheet_path = target_htmldata_dir + '/style.css'
+
+source_content_dir = source_dir + '/content'
+target_content_dir = target_htmldata_dir + '/content'
 
 if not os.path.exists(target_dir):
     os.makedirs(target_dir, exist_ok = True)
 
-if not os.path.exists(target_dir + '/.htmldata'):
-    os.makedirs(target_dir + '/.htmldata', exist_ok = True)
+if not os.path.exists(target_htmldata_dir):
+    os.makedirs(target_htmldata_dir, exist_ok = True)
 
-shutil.copy(stylesheet_filename, target_dir + '/.htmldata/style.css')
+shutil.copy(source_stylesheet_path, target_stylesheet_path)
 
-doc.asis("<!DOCTYPE html>")
+doc.asis('<!DOCTYPE html>')
 with tag('html', lang = language):
     with tag('head'):
         with tag('title'):
@@ -91,16 +100,35 @@ with tag('html', lang = language):
         introduction = get_xml_element(content, 'introduction')
 
         if introduction:
-            paras = get_xml_elements_values(introduction, 'text')
+            with tag('section', id = 'introduction'):
+                with tag('h2'):
+                    text('Introduction')
 
-            if paras:
-                with tag('section', id = 'introduction'):
-                    with tag('h2'):
-                        text('Introduction')
+            is_auto = get_xml_attribute(introduction, 'auto') == 'true'
 
+            if is_auto:
+                introduction_path = source_content_dir + '/introduction.html'
+
+                if os.path.exists(introduction_path):
+                    file = open(introduction_path, 'r', encoding='utf-8')
+                    data = file.read()
+
+                    if data:
+                        doc.asis(data)
+                    else:
+                        text('No introduction text found!')
+                else:
+                    text('No introduction text found!')
+
+            else:
+                paras = get_xml_elements_values(introduction, 'p')
+
+                if paras:
                     for p in paras:
                         with tag('p'):
                             doc.asis(p)
+                else:
+                    text('No introduction text found!')
 
         with tag('section', id = 'legend'):
             with tag('h2'):
@@ -152,7 +180,7 @@ with tag('html', lang = language):
                                         with tag('td'):
                                             text(completeness)
                                         with tag('td'):
-                                            if status == "Not started" or completeness == '0%':
+                                            if status == 'Not started' or completeness == '0%':
                                                 href = '#';
                                             else:
                                                 href = '.htmldata/pages/' + id + '/' + filename + '.html'

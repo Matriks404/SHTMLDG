@@ -4,9 +4,9 @@
 	<site_name>Example documentation</site_name>
 	<stylesheet_name>OldSchoolDocs</stylesheet_name>
 
-	<introduction>
-		<text>Welcome to the Example documentation!</text>
-		<text><![CDATA[Here you can find various guides, or... you can open the <strong><a href=".htmldata/pages/template.html">Template Guide</a></strong> for reference.]]></text>
+	<introduction auto="true">
+		<p>Welcome to the Example documentation!</p>
+		<p><![CDATA[This is placeholder text, introduction should be loaded from <code>introduction.html</code> file.]]></p>
 	</introduction>
 
 	<guides>
