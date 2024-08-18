@@ -158,9 +158,9 @@ with tag('html', lang = language):
 
                 for c in categories:
                     name = get_xml_attribute(c, 'name')
-                    id = get_xml_attribute(c, 'id')
+                    category_id = get_xml_attribute(c, 'id')
 
-                    with tag('div', id = id):
+                    with tag('div', id = category_id):
                         with tag('h3'):
                             text(name)
 
@@ -170,7 +170,7 @@ with tag('html', lang = language):
                             with tag('table'):
                                 for e in entries:
                                     name = get_xml_attribute(e, 'name')
-                                    filename = get_xml_attribute(e, 'filename')
+                                    entry_id = get_xml_attribute(e, 'id')
                                     status = get_xml_attribute(e, 'status')
                                     completeness = get_xml_attribute(e, 'completeness')
 
@@ -183,7 +183,7 @@ with tag('html', lang = language):
                                             if status == 'Not started' or completeness == '0%':
                                                 href = '#';
                                             else:
-                                                href = '.htmldata/pages/' + id + '/' + filename + '.html'
+                                                href = '.htmldata/pages/' + category_id + '/' + entry_id + '.html'
 
                                             with tag('a', href = href):
                                                 text(name)
